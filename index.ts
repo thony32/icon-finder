@@ -1,6 +1,4 @@
-import dotenv from "dotenv"
 import axios from "axios"
-dotenv.config()
 
 const base_Url = "https://node-icon-finder-xma7.vercel.app/icon/"
 
@@ -32,12 +30,12 @@ const getIcons = async (query: string) => {
 }
 
 // NOTE: TEST
-getIcons("food")
-    .then((icon) => {
-        console.log(icon)
-    })
-    .catch((error) => {
-        console.error("Failed to fetch icon:", error)
-    })
+// getIcons("food")
+//     .then((icon) => {
+//         console.log(icon)
+//     })
+//     .catch((error) => {
+//         console.error("Failed to fetch icon:", error)
+//     })
 
 export default getIcons

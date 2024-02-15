@@ -4,8 +4,7 @@
     "description": "Icon finder service from the noun project API",
     "main": "index.ts",
     "scripts": {
-        "dev": "nodemon ./index.ts",
-        "build": "babel ./index.js -d dist"
+        "build": "rm -rf dist && NODE_ENV=production babel index.ts --out-dir dist --extensions '.ts,.tsx' --source-maps inline"
     },
     "keywords": [
         "icon-finder",
@@ -15,17 +14,14 @@
         "@babel/cli": "^7.23.9",
         "@babel/core": "^7.23.9",
         "@babel/preset-env": "^7.23.9",
+        "@babel/preset-typescript": "^7.23.3",
         "@types/node": "^20.11.19",
         "@typescript-eslint/eslint-plugin": "^7.0.1",
         "@typescript-eslint/parser": "^7.0.1",
         "eslint": "^8.56.0",
-        "nodemon": "^3.0.3",
         "typescript": "^5.3.3"
     },
     "dependencies": {
-        "axios": "^1.6.7",
-        "crypto-js": "^4.2.0",
-        "dotenv": "^16.4.4",
-        "oauth-1.0a": "^2.2.6"
+        "axios": "^1.6.7"
     }
 }
