@@ -1,0 +1,21 @@
+{
+    "parser": "@typescript-eslint/parser", // Specifies the ESLint parser
+    "extends": [
+        "eslint:recommended", // Use the recommended rules from ESLint
+        "plugin:@typescript-eslint/eslint-recommended", // Use the recommended rules from @typescript-eslint
+        "plugin:@typescript-eslint/recommended" // Use the recommended rules for TypeScript
+    ],
+    "parserOptions": {
+        "ecmaVersion": 2020, // Allow the parsing of modern ECMAScript features
+        "sourceType": "module" // Allows for the use of imports
+    },
+    "rules": {
+        // Add rules here to override/add to the recommended set of rules
+        // Example rule:
+        "@typescript-eslint/no-explicit-any": "off"
+    },
+    "env": {
+        "node": true, // Enables Node.js global variables
+        "es2021": true // Enables ES2021 global variables
+    }
+}
