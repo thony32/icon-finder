@@ -2,10 +2,9 @@
     "name": "icon-finder",
     "version": "0.0.1",
     "description": "Icon finder service from the noun project API",
-    "main": "index.js",
+    "main": "index.ts",
     "scripts": {
-        "test": "echo \"Error: no test specified\" && exit 1",
-        "dev": "nodemon ./index.js",
+        "dev": "nodemon ./index.ts",
         "build": "babel ./index.js -d dist"
     },
     "keywords": [
