@@ -2,7 +2,7 @@ import getIcons from "./index";
 
 const query = "food";
 
-getIcons(query)
+getIcons(query,2)
     .then((icons) => {
         console.log("Fetched Icons:", icons);
     })

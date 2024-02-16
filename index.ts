@@ -5,9 +5,10 @@ interface IconTypes {
     thumbnail_url: string;
 }
 
-const getIcons = async (query: string) => {
+const getIcons = async (query: string, limit: number) => {
     try {
-        const response = await fetch(`${base_Url}${query}`);
+        const url = `${base_Url}${query}` + "/" + limit;
+        const response = await fetch(url);
 
         if (!response.ok) {
             throw new Error(`Failed to fetch data. Status: ${response.status}`);
@@ -15,11 +16,7 @@ const getIcons = async (query: string) => {
 
         const iconsData: { icons: IconTypes[] } = await response.json();
 
-        const Icons = iconsData.icons.filter((icon: IconTypes) => icon.term.includes(`${query}`));
-
-        const limitedIcons = Icons.slice(0, 20);
-
-        const thumbnails = limitedIcons.map((icon: IconTypes) => ({
+        const thumbnails = iconsData.icons.map((icon: IconTypes) => ({
             thumbnailUrl: icon.thumbnail_url,
             name: icon.term,
         }));
