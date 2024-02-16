@@ -9,5 +9,20 @@ Install the module using npm:
 ```bash
 npm install react-icons-finder
 
-## Launch test local
-npx ts-node test.ts (change the test.ts to test it)
+```
+
+## usage
+
+```jsx
+import getIcons from "./index";
+
+const query = "food";
+
+getIcons(query, 2)
+  .then((icons) => {
+    console.log("Fetched Icons:", icons);
+  })
+  .catch((error) => {
+    console.error("Failed to fetch icons:", error);
+  });
+```
