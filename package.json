@@ -1,6 +1,6 @@
 {
     "name": "react-icons-finder",
-    "version": "0.6.0",
+    "version": "0.6.5",
     "description": "Icon finder service from the noun project API",
     "main": "./dist/index.js",
     "module": "./dist/index.mjs",

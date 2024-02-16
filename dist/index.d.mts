@@ -1,4 +1,4 @@
-declare const getIcons: (query: string) => Promise<{
+declare const getIcons: (query: string, limit: number) => Promise<{
     thumbnailUrl: string;
     name: string;
 }[]>;

@@ -44,16 +44,15 @@ __export(icon_finder_exports, {
 });
 module.exports = __toCommonJS(icon_finder_exports);
 var base_Url = "https://node-icon-finder-xma7.vercel.app/icon/";
-var getIcons = (query) => __async(void 0, null, function* () {
+var getIcons = (query, limit) => __async(void 0, null, function* () {
   try {
-    const response = yield fetch(`${base_Url}${query}`);
+    const url = `${base_Url}${query}/` + limit;
+    const response = yield fetch(url);
     if (!response.ok) {
       throw new Error(`Failed to fetch data. Status: ${response.status}`);
     }
     const iconsData = yield response.json();
-    const Icons = iconsData.icons.filter((icon) => icon.term.includes(`${query}`));
-    const limitedIcons = Icons.slice(0, 20);
-    const thumbnails = limitedIcons.map((icon) => ({
+    const thumbnails = iconsData.icons.map((icon) => ({
       thumbnailUrl: icon.thumbnail_url,
       name: icon.term
     }));
