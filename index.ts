@@ -1,41 +1,38 @@
-import axios from "axios"
 
-const base_Url = "https://node-icon-finder-xma7.vercel.app/icon/"
+import dotenv from 'dotenv';
+dotenv.config();
+
+const base_Url = process.env.URL;
 
 interface IconTypes {
-    term: string
-    thumbnail_url: string
+    term: string;
+    thumbnail_url: string;
 }
 
 const getIcons = async (query: string) => {
     try {
-        const response = await axios.get(`${base_Url}${query}`)
+        const response = await fetch(`${base_Url}${query}`);
 
-        const iconsData = response.data
+        if (!response.ok) {
+            throw new Error(`Failed to fetch data. Status: ${response.status}`);
+        }
 
-        const Icons = iconsData.icons.filter((icon: IconTypes) => icon.term.includes(`${query}`))
+        const iconsData: { icons: IconTypes[] } = await response.json();
 
-        const limitedIcons = Icons.slice(0, 20)
+        const Icons = iconsData.icons.filter((icon: IconTypes) => icon.term.includes(`${query}`));
+
+        const limitedIcons = Icons.slice(0, 20);
 
         const thumbnails = limitedIcons.map((icon: IconTypes) => ({
             thumbnailUrl: icon.thumbnail_url,
             name: icon.term,
-        }))
+        }));
 
-        return thumbnails
+        return thumbnails;
     } catch (error) {
-        console.error("Error fetching icons:", error)
-        return []
+        console.error("Error fetching icons:", error);
+        return [];
     }
-}
+};
 
-// NOTE: TEST
-// getIcons("food")
-//     .then((icon) => {
-//         console.log(icon)
-//     })
-//     .catch((error) => {
-//         console.error("Failed to fetch icon:", error)
-//     })
-
-export default getIcons
+export default getIcons;
