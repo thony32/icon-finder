@@ -1,7 +1,7 @@
 const base_Url = "https://node-icon-finder-xma7.vercel.app/icon/";
 
 interface IconTypes {
-    term: string;
+    attribution: string;
     thumbnail_url: string;
 }
 
@@ -18,7 +18,7 @@ const getIcons = async (query: string, limit: number) => {
 
         const thumbnails = iconsData.icons.map((icon: IconTypes) => ({
             thumbnailUrl: icon.thumbnail_url,
-            name: icon.term,
+            name: icon.attribution.replace(" from Noun Project", ""),
         }));
 
         return thumbnails;

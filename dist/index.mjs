@@ -31,7 +31,7 @@ var getIcons = (query, limit) => __async(void 0, null, function* () {
     const iconsData = yield response.json();
     const thumbnails = iconsData.icons.map((icon) => ({
       thumbnailUrl: icon.thumbnail_url,
-      name: icon.term
+      name: icon.attribution.replace(" from Noun Project", "")
     }));
     return thumbnails;
   } catch (error) {

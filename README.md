@@ -14,11 +14,12 @@ npm install react-icons-finder
 ## usage
 
 ```jsx
-import getIcons from "./index";
+import getIcons from "react-icons-finder";
 
 const query = "food";
+const limit = 2
 
-getIcons(query, 2)
+getIcons(query, limit)
   .then((icons) => {
     console.log("Fetched Icons:", icons);
   })
