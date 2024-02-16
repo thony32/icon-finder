@@ -1,8 +1,4 @@
-
-import dotenv from 'dotenv';
-dotenv.config();
-
-const base_Url = process.env.URL;
+const base_Url = "https://node-icon-finder-xma7.vercel.app/icon/";
 
 interface IconTypes {
     term: string;
