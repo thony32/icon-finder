@@ -20,9 +20,7 @@ var __async = (__this, __arguments, generator) => {
 };
 
 // index.ts
-import dotenv from "dotenv";
-dotenv.config();
-var base_Url = process.env.URL;
+var base_Url = "https://node-icon-finder-xma7.vercel.app/icon/";
 var getIcons = (query) => __async(void 0, null, function* () {
   try {
     const response = yield fetch(`${base_Url}${query}`);
